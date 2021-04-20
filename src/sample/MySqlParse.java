@@ -10,7 +10,7 @@ public class MySqlParse {
 
     MySqlParse() {
         try {
-            .PropertiesParse propertiesParse = new .PropertiesParse();
+            PropertiesParse propertiesParse = new PropertiesParse();
             var settings = propertiesParse.bdSettings();
             this.connectionUrl = settings[0];
             this.userName = settings[1];
