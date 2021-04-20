@@ -40,7 +40,7 @@ public class Main extends Application {
         return strings;
     }
 
-    private static Student setNewStudent(int size) {
+    static Student setNewStudent(int size) {
         var strings = setValueStudent();
         return new Student(size + 1, strings[0], strings[1], strings[2],
                 strings[3], strings[4], strings[5]);

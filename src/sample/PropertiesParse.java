@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesParse {
-    private String propPath = "D:\\~~~3курс 2 сем\\~лабы\\ИСИС\\5 лаба ИС\\settings.properties";
+    private String propPath = "E:\\Java\\5\\javafx5\\settings.properties";
     PropertiesParse() {
 
     }

@@ -128,4 +128,12 @@
         <clas>9Б</clas>
         <age>16</age>
     </Student>
+    <Student id="17">
+        <name>новый</name>
+        <surname>фамилия</surname>
+        <patronymic>отчество 1</patronymic>
+        <school>123</school>
+        <clas>11А</clas>
+        <age>18</age>
+    </Student>
 </Students>
