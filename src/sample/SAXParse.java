@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SAXParse {
-    protected int typeSearch;
     protected String content;
     protected boolean flag = false;
     protected ArrayList<Student> students = new ArrayList<Student>();
@@ -111,11 +110,10 @@ public class SAXParse {
         }
     };
 
-    public Student searchSaxDocument(String filePath, int type, String content) {
+    public Student searchSaxDocument(String filePath,String content) {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
-            this.typeSearch = type;
             this.content = content;
             saxParser.parse(new File(filePath), handlerSearch);
         } catch (Exception e) {
@@ -155,7 +153,5 @@ public class SAXParse {
         }
     }
 
-    public void searchSaxDocument(String filePath, int searchId) {
-    }
 };
 

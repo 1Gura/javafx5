@@ -27,7 +27,7 @@ public class MySqlParse {
     }
 
     public ResultSet searchRecord(int id) throws SQLException {
-        return statement.executeQuery("select * from students where id in(" + id + ");");
+        return this.statement.executeQuery("select * from students where id in(" + id + ");");
     }
 
     public void addNewRecord(String[] strings) throws SQLException {
@@ -81,11 +81,11 @@ public class MySqlParse {
                     }
                 }
             } catch (Exception e) {
-                var prop = new .PropertiesParse();
+                var prop = new PropertiesParse();
                 System.out.println(prop.error());
             }
         } catch (Exception e) {
-            var prop = new .PropertiesParse();
+            var prop = new PropertiesParse();
             System.out.println(prop.errorDriver());
         }
         return null;
