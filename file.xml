@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Students>
+    <Student id="1">
+        <name>Илья</name>
+        <surname>Гура</surname>
+        <patronymic>Сергеевич</patronymic>
+        <school>Школа №13</school>
+        <clas>11</clas>
+        <age>18</age>
+    </Student>
+    <Student id="2">
+        <name>qwd</name>
+        <surname>qwd</surname>
+        <patronymic>qw</patronymic>
+        <school>dqwd</school>
+        <clas>qwd</clas>
+        <age>w</age>
+    </Student>
+    <Student id="3">
+        <name>тест2</name>
+        <surname>тест2</surname>
+        <patronymic>тест</patronymic>
+        <school>тест2</school>
+        <clas>11А</clas>
+        <age>18</age>
+    </Student>
+    <Student id="4">
+        <name>few</name>
+        <surname>we</surname>
+        <patronymic>wef</patronymic>
+        <school>wef</school>
+        <clas>wef</clas>
+        <age>3</age>
+    </Student>
+    <Student id="5">
+        <name>изменил</name>
+        <surname>изменил</surname>
+        <patronymic>изменил</patronymic>
+        <school>изменил</school>
+        <clas>изменил</clas>
+        <age>23</age>
+    </Student>
+    <Student id="6">
+        <name>Новое</name>
+        <surname>Фамиияновая</surname>
+        <patronymic>папович</patronymic>
+        <school>МБОУ</school>
+        <clas>9Б</clas>
+        <age>16</age>
+    </Student>
+    <Student id="7">
+        <name>Илья</name>
+        <surname>Гура</surname>
+        <patronymic>Сергеевич</patronymic>
+        <school>Школа №13</school>
+        <clas>11</clas>
+        <age>18</age>
+    </Student>
+    <Student id="8">
+        <name>qwd</name>
+        <surname>qwd</surname>
+        <patronymic>qw</patronymic>
+        <school>dqwd</school>
+        <clas>qwd</clas>
+        <age>w</age>
+    </Student>
+    <Student id="9">
+        <name>тест</name>
+        <surname>тест</surname>
+        <patronymic>тест</patronymic>
+        <school>тест</school>
+        <clas>тест</clas>
+        <age>13</age>
+    </Student>
+    <Student id="10">
+        <name>few</name>
+        <surname>we</surname>
+        <patronymic>wef</patronymic>
+        <school>wef</school>
+        <clas>wef</clas>
+        <age>3</age>
+    </Student>
+    <Student id="11">
+        <name>Илья</name>
+        <surname>Гура</surname>
+        <patronymic>Сергеевич</patronymic>
+        <school>Школа №13</school>
+        <clas>11</clas>
+        <age>18</age>
+    </Student>
+    <Student id="12">
+        <name>qwd</name>
+        <surname>qwd</surname>
+        <patronymic>qw</patronymic>
+        <school>dqwd</school>
+        <clas>qwd</clas>
+        <age>w</age>
+    </Student>
+    <Student id="13">
+        <name>тест2</name>
+        <surname>тест2</surname>
+        <patronymic>тест</patronymic>
+        <school>тест2</school>
+        <clas>11А</clas>
+        <age>18</age>
+    </Student>
+    <Student id="14">
+        <name>few</name>
+        <surname>we</surname>
+        <patronymic>wef</patronymic>
+        <school>wef</school>
+        <clas>wef</clas>
+        <age>3</age>
+    </Student>
+    <Student id="15">
+        <name>изменил</name>
+        <surname>изменил</surname>
+        <patronymic>изменил</patronymic>
+        <school>изменил</school>
+        <clas>изменил</clas>
+        <age>23</age>
+    </Student>
+    <Student id="16">
+        <name>Новое</name>
+        <surname>Фамиияновая</surname>
+        <patronymic>папович</patronymic>
+        <school>МБОУ</school>
+        <clas>9Б</clas>
+        <age>16</age>
+    </Student>
+</Students>
