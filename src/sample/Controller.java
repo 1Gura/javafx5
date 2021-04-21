@@ -1,6 +1,7 @@
 package sample;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -90,7 +91,7 @@ public class Controller {
 
     private String filePath;
 
-    private HBox getHbox() {
+    private HBox addStudentXML() {
         var label1 = new Label("Введите имя:");
         var label2 = new Label("Введите фамилию:");
         var label3 = new Label("Введите отчество:");
@@ -137,6 +138,124 @@ public class Controller {
         hBox.setMinHeight(600);
         return hBox;
     }
+
+    private HBox addStudentBD() {
+        var label1 = new Label("Введите имя:");
+        var label2 = new Label("Введите фамилию:");
+        var label3 = new Label("Введите отчество:");
+        var label4 = new Label("Введите школу:");
+        var label5 = new Label("Введите класс:");
+        var label6 = new Label("Введите возраст:");
+        var label7 = new Label("");
+        var textField1 = new TextField();
+        var textField2 = new TextField();
+        var textField3 = new TextField();
+        var textField4 = new TextField();
+        var textField5 = new TextField();
+        var textField6 = new TextField();
+        var button = new Button("Добавить");
+        button.setOnAction(actionEvent -> {
+            var mySql = new MySqlParse();
+            var newStudent = new Student(
+                    0,
+                    textField1.getText(),
+                    textField2.getText(),
+                    textField3.getText(),
+                    textField4.getText(),
+                    textField5.getText(),
+                    textField6.getText()
+            );
+            if (!textField1.getText().equals("") &&
+                    !textField2.getText().equals("") &&
+                    !textField3.getText().equals("") &&
+                    !textField4.getText().equals("") &&
+                    !textField5.getText().equals("") &&
+                    !textField6.getText().equals("")) {
+                try {
+                    mySql.addNewRecord(newStudent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                var dom = new DomParse(filePath);
+                label7.setText("Ученик добавлен!");
+            } else {
+                label7.setText("Ученик не добавлен!");
+
+            }
+        });
+        HBox hBox = new HBox(new FlowPane(Orientation.VERTICAL, 20, 20, label1, textField1, label2, textField2, label3, textField3, label4, textField4, label5, textField5, label6, textField6, button, label7));
+        hBox.setMinWidth(400);
+        hBox.setMinHeight(600);
+        return hBox;
+    }
+
+    private HBox changeStudentBD(int id) {
+        Student student = null;
+        var mySql = new MySqlParse();
+        try {
+            var result  = mySql.searchRecord(id);
+            while (result.next()) {
+                student = new Student(
+                        result.getInt("id"),
+                        result.getString("name"),
+                        result.getString("surname"),
+                        result.getString("patronymic"),
+                        result.getString("school"),
+                        result.getString("clas"),
+                        result.getString("age")
+                );
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        var label0 = new Label("Id:" + id);
+        var label1 = new Label("Введите имя:");
+        var label2 = new Label("Введите фамилию:");
+        var label3 = new Label("Введите отчество:");
+        var label4 = new Label("Введите школу:");
+        var label5 = new Label("Введите класс:");
+        var label6 = new Label("Введите возраст:");
+        var label7 = new Label("");
+        var textField1 = new TextField(student.getName());
+        var textField2 = new TextField(student.getSurname());
+        var textField3 = new TextField(student.getPatronymic());
+        var textField4 = new TextField(student.getSchool());
+        var textField5 = new TextField(student.getClas());
+        var textField6 = new TextField(student.getAge());
+        var button = new Button("Изменить");
+        button.setOnAction(actionEvent -> {
+            var newStudent = new Student(
+                    0,
+                    textField1.getText(),
+                    textField2.getText(),
+                    textField3.getText(),
+                    textField4.getText(),
+                    textField5.getText(),
+                    textField6.getText()
+            );
+            if (!textField1.getText().equals("") &&
+                    !textField2.getText().equals("") &&
+                    !textField3.getText().equals("") &&
+                    !textField4.getText().equals("") &&
+                    !textField5.getText().equals("") &&
+                    !textField6.getText().equals("")) {
+                try {
+                    mySql.updateRecord(id, newStudent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                label7.setText("Ученик добавлен!");
+            } else {
+                label7.setText("Ученик не добавлен!");
+
+            }
+        });
+        HBox hBox = new HBox(new FlowPane(Orientation.VERTICAL, 20, 20, label0, label1, textField1, label2, textField2, label3, textField3, label4, textField4, label5, textField5, label6, textField6, button, label7));
+        hBox.setMinWidth(400);
+        hBox.setMinHeight(600);
+        return hBox;
+    }
+
 
     private HBox changeStudent(Student student, int index) {
         var label0 = new Label("Id:" + student.getId());
@@ -274,7 +393,7 @@ public class Controller {
         });
 
         addXML.setOnAction(actionEvent -> {
-            HBox hBox = getHbox();
+            HBox hBox = addStudentXML();
             newWindow(hBox);
         });
         changeXML.setOnAction(actionEvent -> {
@@ -330,6 +449,23 @@ public class Controller {
             } else {
                 label3.setText("Такого студента нет!");
             }
+        });
+        addBD.setOnAction(actionEvent -> {
+            HBox hBox = addStudentBD();
+            newWindow(hBox);
+        });
+        changeBD.setOnAction(actionEvent -> {
+            HBox hBox = changeStudentBD(Integer.parseInt(changeInputDB.getText()));
+            newWindow(hBox);
+        });
+        deleteBD.setOnAction(actionEvent -> {
+                var mySql = new MySqlParse();
+            try {
+                mySql.deleteRecord(Integer.parseInt(inputDeleteDB.getText()));
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            label4.setText("Ученик удален!");
         });
     }
 }

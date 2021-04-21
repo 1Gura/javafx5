@@ -46,6 +46,10 @@ public class MySqlParse {
         var strings = Main.setValueStudent();
         statement.executeUpdate("update students set name = '" + strings[0] + "', surname = '" + strings[1] + "', patronymic = '" + strings[2] + "', school = '" + strings[3] + "', clas = '" + strings[4] + "', age = '" + strings[5] + "' where id = " + id + ";");
     }
+    public void updateRecord(int id, Student student) throws SQLException {
+        statement.executeUpdate("update students set name = '" + student.getName() + "', surname = '" + student.getSurname() + "', patronymic = '" + student.getPatronymic() + "', school = '" + student.getSchool() + "', clas = '" + student.getClas() + "', age = '" + student.getAge() + "' where id = " + id + ";");
+    }
+
 
     public void deleteRecord(int id) throws SQLException {
         statement.executeUpdate("delete from students where id in(" + id + ");");
