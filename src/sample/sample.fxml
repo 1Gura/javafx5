@@ -26,10 +26,18 @@
             <Label layoutX="221.0" layoutY="259.0" prefHeight="17.0" prefWidth="42.0" text="БД" />
             <Button fx:id="addXML" layoutX="14.0" layoutY="279.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Добавить" />
             <Button fx:id="changeXML" layoutX="14.0" layoutY="319.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Изменить" />
-            <Button fx:id="deleteXML" layoutX="14.0" layoutY="356.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Удалить" />
+            <Button fx:id="deleteXML" layoutX="14.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Удалить" />
             <Button fx:id="addBD" layoutX="213.0" layoutY="278.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Добавить" />
-            <Button fx:id="changeBD" layoutX="213.0" layoutY="318.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Изменить" />
-            <Button fx:id="deleteBD" layoutX="213.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Удалить" />
+            <Button fx:id="changeBD" layoutX="213.0" layoutY="319.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Изменить" />
+            <Button fx:id="deleteBD" layoutX="213.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Удалить" />
+            <TextField fx:id="changeInputXML" layoutX="109.0" layoutY="319.0" prefHeight="25.0" prefWidth="70.0" />
+            <TextField fx:id="changeInputDB" layoutX="307.0" layoutY="319.0" prefHeight="25.0" prefWidth="70.0" />
+            <Label fx:id="label1" layoutX="14.0" layoutY="351.0" />
+            <Label fx:id="label2" layoutX="213.0" layoutY="351.0" />
+            <TextField fx:id="inputDeleteXML" layoutX="109.0" layoutY="391.0" prefHeight="25.0" prefWidth="70.0" />
+            <TextField fx:id="inputDeleteDB" layoutX="307.0" layoutY="391.0" prefHeight="25.0" prefWidth="70.0" />
+            <Label fx:id="label3" layoutX="14.0" layoutY="424.0" />
+            <Label fx:id="label4" layoutX="213.0" layoutY="424.0" />
          </children>
       </AnchorPane>
    </children>

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -63,6 +64,30 @@ public class Controller {
     @FXML
     private Button deleteBD;
 
+    @FXML
+    private TextField changeInputXML;
+
+    @FXML
+    private TextField changeInputDB;
+
+    @FXML
+    private Label label1;
+
+    @FXML
+    private Label label2;
+
+    @FXML
+    private TextField inputDeleteXML;
+
+    @FXML
+    private TextField inputDeleteDB;
+
+    @FXML
+    private Label label3;
+
+    @FXML
+    private Label label4;
+
     private String filePath;
 
     private HBox getHbox() {
@@ -72,6 +97,7 @@ public class Controller {
         var label4 = new Label("Введите школу:");
         var label5 = new Label("Введите класс:");
         var label6 = new Label("Введите возраст:");
+        var label7 = new Label("");
         var textField1 = new TextField();
         var textField2 = new TextField();
         var textField3 = new TextField();
@@ -91,14 +117,73 @@ public class Controller {
                     textField5.getText(),
                     textField6.getText()
             );
-            students.add(newStudent);
-            var dom = new DomParse(filePath);
-            dom.setDomNodes(students);
+            if (!textField1.getText().equals("") &&
+                    !textField2.getText().equals("") &&
+                    !textField3.getText().equals("") &&
+                    !textField4.getText().equals("") &&
+                    !textField5.getText().equals("") &&
+                    !textField6.getText().equals("")) {
+                students.add(newStudent);
+                var dom = new DomParse(filePath);
+                dom.setDomNodes(students);
+                label7.setText("Ученик добавлен!");
+            } else {
+                label7.setText("Ученик не добавлен!");
+
+            }
         });
-        HBox hBox = new HBox(new FlowPane(Orientation.VERTICAL, 20, 20, label1, textField1, label2, textField2, label3, textField3, label4, textField4, label5, textField5, label6, textField6, button));
+        HBox hBox = new HBox(new FlowPane(Orientation.VERTICAL, 20, 20, label1, textField1, label2, textField2, label3, textField3, label4, textField4, label5, textField5, label6, textField6, button, label7));
         hBox.setMinWidth(400);
         hBox.setMinHeight(600);
         return hBox;
+    }
+
+    private HBox changeStudent(Student student, int index) {
+        var label0 = new Label("Id:" + student.getId());
+        var label1 = new Label("Введите имя:");
+        var label2 = new Label("Введите фамилию:");
+        var label3 = new Label("Введите отчество:");
+        var label4 = new Label("Введите школу:");
+        var label5 = new Label("Введите класс:");
+        var label6 = new Label("Введите возраст:");
+        var label7 = new Label("");
+        var textField1 = new TextField(student.getName());
+        var textField2 = new TextField(student.getSurname());
+        var textField3 = new TextField(student.getPatronymic());
+        var textField4 = new TextField(student.getSchool());
+        var textField5 = new TextField(student.getClas());
+        var textField6 = new TextField(student.getAge());
+        var button = new Button("Изменить");
+        button.setOnAction(actionEvent -> {
+            var sax = new SAXParse();
+            var students = sax.readerSaxDocument(this.filePath);
+            var id = student.getId();
+            students.set(index, new Student(
+                    id,
+                    textField1.getText(),
+                    textField2.getText(),
+                    textField3.getText(),
+                    textField4.getText(),
+                    textField5.getText(),
+                    textField6.getText()
+            ));
+            var dom = new DomParse(filePath);
+            dom.setDomNodes(students);
+        });
+        HBox hBox = new HBox(new FlowPane(Orientation.VERTICAL, 20, 20, label0, label1, textField1, label2, textField2, label3, textField3, label4, textField4, label5, textField5, label6, textField6, button, label7));
+        hBox.setMinWidth(400);
+        hBox.setMinHeight(600);
+        return hBox;
+    }
+
+    private void newWindow(HBox hBox) {
+        hBox.setAlignment(Pos.CENTER);
+        Stage stage2 = new Stage();
+        Scene scene = new Scene(hBox, 300, 600);
+        stage2.setScene(scene);
+        stage2.setTitle("Ученик");
+        stage2.initModality(Modality.NONE);
+        stage2.show();
     }
 
     @FXML
@@ -189,15 +274,62 @@ public class Controller {
         });
 
         addXML.setOnAction(actionEvent -> {
-            HBox flowPane = getHbox();
-            Stage stage2 = new Stage();
-            Scene scene = new Scene(flowPane, 400, 400);
-            stage2.setScene(scene);
-            stage2.setTitle("Ученик");
-            stage2.initModality(Modality.NONE);
-            stage2.show();
+            HBox hBox = getHbox();
+            newWindow(hBox);
+        });
+        changeXML.setOnAction(actionEvent -> {
+            var sax = new SAXParse();
+            var students = sax.readerSaxDocument(filePath);
+            boolean flag = false;
+            Student searchStudent = null;
+            int searchId = -1;
+            int index = -1;
+            for (int i = 0; i < students.size(); i++) {
+                try {
+                    searchId = Integer.parseInt(changeInputXML.getText());
+                } catch (Exception e) {
+                    label1.setText("Можно ввести только числа!");
+                }
+                if (students.get(i).getId() == searchId) {
+                    index = i;
+                    searchStudent = students.get(i);
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                HBox hBox = changeStudent(searchStudent, index);
+                newWindow(hBox);
+                label1.setText("");
+            } else {
+                label1.setText("Такого ученика нет!");
+            }
         });
 
-
+        deleteXML.setOnAction(actionEvent -> {
+            var sax = new SAXParse();
+            var students = sax.readerSaxDocument(filePath);
+            boolean flag = false;
+            int id = -1;
+            for (int i = 0; i < students.size(); i++) {
+                try {
+                    id = Integer.parseInt(inputDeleteXML.getText());
+                } catch (Exception e) {
+                    label3.setText("Можно ввести только цифры!");
+                }
+                if (students.get(i).getId() == id) {
+                    students.remove(i);
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                var dom = new DomParse(filePath);
+                dom.setDomNodes(students);
+                label3.setText("");
+            } else {
+                label3.setText("Такого студента нет!");
+            }
+        });
     }
 }

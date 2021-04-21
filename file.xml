@@ -9,22 +9,14 @@
         <age>18</age>
     </Student>
     <Student id="2">
-        <name>qwd</name>
+        <name>1</name>
         <surname>qwd</surname>
-        <patronymic>qw</patronymic>
-        <school>dqwd</school>
-        <clas>qwd</clas>
-        <age>w</age>
+        <patronymic>2</patronymic>
+        <school>2</school>
+        <clas>2</clas>
+        <age>2</age>
     </Student>
     <Student id="3">
-        <name>тест2</name>
-        <surname>тест2</surname>
-        <patronymic>тест</patronymic>
-        <school>тест2</school>
-        <clas>11А</clas>
-        <age>18</age>
-    </Student>
-    <Student id="4">
         <name>few</name>
         <surname>we</surname>
         <patronymic>wef</patronymic>
@@ -32,7 +24,7 @@
         <clas>wef</clas>
         <age>3</age>
     </Student>
-    <Student id="5">
+    <Student id="4">
         <name>изменил</name>
         <surname>изменил</surname>
         <patronymic>изменил</patronymic>
@@ -40,7 +32,7 @@
         <clas>изменил</clas>
         <age>23</age>
     </Student>
-    <Student id="6">
+    <Student id="5">
         <name>Новое</name>
         <surname>Фамиияновая</surname>
         <patronymic>папович</patronymic>
@@ -48,7 +40,7 @@
         <clas>9Б</clas>
         <age>16</age>
     </Student>
-    <Student id="7">
+    <Student id="6">
         <name>Илья</name>
         <surname>Гура</surname>
         <patronymic>Сергеевич</patronymic>
@@ -56,7 +48,7 @@
         <clas>11</clas>
         <age>18</age>
     </Student>
-    <Student id="8">
+    <Student id="7">
         <name>qwd</name>
         <surname>qwd</surname>
         <patronymic>qw</patronymic>
@@ -64,7 +56,7 @@
         <clas>qwd</clas>
         <age>w</age>
     </Student>
-    <Student id="9">
+    <Student id="8">
         <name>тест</name>
         <surname>тест</surname>
         <patronymic>тест</patronymic>
@@ -72,7 +64,7 @@
         <clas>тест</clas>
         <age>13</age>
     </Student>
-    <Student id="10">
+    <Student id="9">
         <name>few</name>
         <surname>we</surname>
         <patronymic>wef</patronymic>
@@ -80,7 +72,7 @@
         <clas>wef</clas>
         <age>3</age>
     </Student>
-    <Student id="11">
+    <Student id="10">
         <name>Илья</name>
         <surname>Гура</surname>
         <patronymic>Сергеевич</patronymic>
@@ -88,7 +80,7 @@
         <clas>11</clas>
         <age>18</age>
     </Student>
-    <Student id="12">
+    <Student id="11">
         <name>qwd</name>
         <surname>qwd</surname>
         <patronymic>qw</patronymic>
@@ -96,7 +88,7 @@
         <clas>qwd</clas>
         <age>w</age>
     </Student>
-    <Student id="13">
+    <Student id="12">
         <name>тест2</name>
         <surname>тест2</surname>
         <patronymic>тест</patronymic>
@@ -104,7 +96,7 @@
         <clas>11А</clas>
         <age>18</age>
     </Student>
-    <Student id="14">
+    <Student id="13">
         <name>few</name>
         <surname>we</surname>
         <patronymic>wef</patronymic>
@@ -112,7 +104,7 @@
         <clas>wef</clas>
         <age>3</age>
     </Student>
-    <Student id="15">
+    <Student id="14">
         <name>изменил</name>
         <surname>изменил</surname>
         <patronymic>изменил</patronymic>
@@ -120,7 +112,7 @@
         <clas>изменил</clas>
         <age>23</age>
     </Student>
-    <Student id="16">
+    <Student id="15">
         <name>Новое</name>
         <surname>Фамиияновая</surname>
         <patronymic>папович</patronymic>
@@ -128,12 +120,20 @@
         <clas>9Б</clas>
         <age>16</age>
     </Student>
-    <Student id="17">
+    <Student id="16">
         <name>новый</name>
         <surname>фамилия</surname>
         <patronymic>отчество 1</patronymic>
         <school>123</school>
         <clas>11А</clas>
         <age>18</age>
+    </Student>
+    <Student id="17">
+        <name>1</name>
+        <surname>1</surname>
+        <patronymic>1</patronymic>
+        <school>1</school>
+        <clas>1</clas>
+        <age>1</age>
     </Student>
 </Students>
