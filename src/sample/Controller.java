@@ -123,7 +123,7 @@ public class Controller {
                     !textField3.getText().equals("") &&
                     !textField4.getText().equals("") &&
                     !textField5.getText().equals("") &&
-                    !textField6.getText().equals("")) {
+                    !textField6.getText().equals("") && textField6.getText().trim().matches("^\\d+$")) {
                 students.add(newStudent);
                 var dom = new DomParse(filePath);
                 dom.setDomNodes(students);
@@ -170,7 +170,7 @@ public class Controller {
                     !textField3.getText().equals("") &&
                     !textField4.getText().equals("") &&
                     !textField5.getText().equals("") &&
-                    !textField6.getText().equals("")) {
+                    !textField6.getText().equals("") && textField6.getText().trim().matches("^\\d+$")) {
                 try {
                     mySql.addNewRecord(newStudent);
                 } catch (Exception e) {
@@ -238,7 +238,7 @@ public class Controller {
                     !textField3.getText().equals("") &&
                     !textField4.getText().equals("") &&
                     !textField5.getText().equals("") &&
-                    !textField6.getText().equals("")) {
+                    !textField6.getText().equals("") && textField6.getText().trim().matches("^\\d+$")) {
                 try {
                     mySql.updateRecord(id, newStudent);
                 } catch (Exception e) {
